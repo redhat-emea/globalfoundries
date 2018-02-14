@@ -1,0 +1,41 @@
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>This</web-resource-name>
+            <url-pattern>/rest/this</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>this-role</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>That</web-resource-name>
+            <url-pattern>/rest/that</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>that-role</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>ApplicationRealm</realm-name>
+    </login-config>
+
+    <security-role>
+        <role-name>this-role</role-name>
+    </security-role>
+    <security-role>
+        <role-name>that-role</role-name>
+    </security-role>
+
+
+</web-app>
