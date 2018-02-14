@@ -9,6 +9,11 @@
     <container qualifier="jboss" default="true">
         <configuration>
             <property name="jbossHome">/opt/rh/jboss-eap-7.1</property>
+            <!--
+            <property name="javaVmArguments">-Djava.net.preferIPv4Stack=true -Djboss.server.config.dir=${project.basedir}/src/test/resources/conf</property>
+            -->
+            <property name="javaVmArguments">-Djava.net.preferIPv4Stack=true -Djboss.server.config.dir=/home/luigi/Dropbox/foogaro/RedHat/rh-projects/EMEA/globalfoundries/packaging/rest-impl/src/test/resources/conf</property>
+            <property name="serverConfig">gfoundries-standalone.xml</property>
         </configuration>
     </container>
 
