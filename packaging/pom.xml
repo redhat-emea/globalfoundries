@@ -46,7 +46,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.jboss.bom.eap>7.0.9.GA</version.jboss.bom.eap>
+        <version.jboss.bom.eap>7.1.0.GA</version.jboss.bom.eap>
         <version.wildfly.maven.plugin>1.2.1.Final</version.wildfly.maven.plugin>
         <version.ear.plugin>2.10.1</version.ear.plugin>
         <version.ejb.plugin>3.0.0</version.ejb.plugin>
@@ -54,6 +54,7 @@
         <version.jar.plugin>3.0.2</version.jar.plugin>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <version.arquillian.core>1.1.8.Final</version.arquillian.core>
     </properties>
 
     <dependencyManagement>
@@ -74,6 +75,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.arquillian.core}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -84,6 +93,7 @@
         <module>soap-impl</module>
         <module>war</module>
         <module>ear</module>
+        <module>docker</module>
     </modules>
 
 </project>
