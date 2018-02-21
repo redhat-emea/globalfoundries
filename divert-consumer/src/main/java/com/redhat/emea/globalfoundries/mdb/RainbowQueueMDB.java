@@ -9,7 +9,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 @MessageDriven(name = "RainbowQueueMDB", activationConfig = {
-    @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "color='rainbow'"),
+//    @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "color='rainbow'"),
     @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/Rainbow"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
     @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
