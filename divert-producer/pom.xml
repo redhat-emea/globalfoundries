@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.redhat.emea.globalfoundries</groupId>
+    <artifactId>divert-producer</artifactId>
+    <version>1.0.0.GA</version>
+    <packaging>jar</packaging>
+    <name>divert-producer</name>
+    <url>http://www.jboss.org/products/eap</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <repositories>
+        <repository>
+            <id>jboss-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.jboss.bom.eap>7.1.0.GA</version.jboss.bom.eap>
+        <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+        <version.jar.plugin>2.2</version.jar.plugin>
+        <version.exec.plugin>1.2.1</version.exec.plugin>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-javaee7</artifactId>
+                <version>${version.jboss.bom.eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.eap</groupId>
+            <artifactId>wildfly-jms-client-bom</artifactId>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${version.exec.plugin}</version>
+                <configuration>
+                    <mainClass>com.redhat.emea.globalfoundries.JMSProducerClient</mainClass>
+                    <systemProperties>
+                        <!-- Override the default values of properties passed to the JMSProducerClient -->
+                        <!--
+                        <systemProperty>
+                            <key>java.naming.provider.url</key>
+                            <value>remote://localhost:8080</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>username</key>
+                            <value>jmsuser</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>password</key>
+                            <value>jmspassword1!</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>connection.factory</key>
+                            <value>jms/RemoteConnectionFactory</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>destination</key>
+                            <value>jms/queue/test</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>message.count</key>
+                            <value>10</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>message.content</key>
+                            <value>That is a message.</value>
+                        </systemProperty-->
+                        <systemProperty>
+                            <key>java.logging.config.file</key>
+                            <value>./jms-producer-logging.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${version.jar.plugin}</version>
+                <configuration>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly.maven.plugin}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

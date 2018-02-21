@@ -1,0 +1,15 @@
+# Batch script to add the JMS configuration to the JBoss EAP server
+
+# Start batching commands
+batch
+
+# Configure the JMS test queue
+jms-queue add --queue-address=firstQueue --entries=queue/First,java:jboss/exported/jms/queue/First
+
+# Run the batch commands
+run-batch
+
+# Reload the server configuration
+:reload
+
+
