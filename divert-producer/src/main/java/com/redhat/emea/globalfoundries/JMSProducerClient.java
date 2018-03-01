@@ -15,7 +15,7 @@ public class JMSProducerClient {
     private static final String DEFAULT_MESSAGE = "Message #";
     private static final String DEFAULT_CONNECTION_FACTORY = "jms/RemoteConnectionFactory";
     private static final String DEFAULT_DESTINATION = "jms/topic/Inbound";
-    private static final String DEFAULT_MESSAGE_COUNT = "10";
+    private static final String DEFAULT_MESSAGE_COUNT = "100";
     private static final String DEFAULT_USERNAME = "jmsuser";
     private static final String DEFAULT_PASSWORD = "jmspassword1!";
     private static final String INITIAL_CONTEXT_FACTORY = "org.jboss.naming.remote.client.InitialContextFactory";
