@@ -5,10 +5,10 @@ import java.util.Date;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 
-@Singleton
+//@Singleton
 public class ScheduleExample {
 
-    @Schedule(second = "*/10", minute = "*", hour = "*", persistent = true)
+//    @Schedule(second = "*/10", minute = "*", hour = "*", persistent = true)
     public void doWork() {
         Date currentTime = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");

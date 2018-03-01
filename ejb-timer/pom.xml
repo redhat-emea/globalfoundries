@@ -93,9 +93,12 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.wildfly.maven.plugin}</version>
                 <configuration>
+                    <filename>${project.build.finalName}.war</filename>
+                    <!--
                     <fileNames>
                         <fileName>target/${project.build.finalName}.war</fileName>
                     </fileNames>
+                    -->
                 </configuration>
             </plugin>
             <plugin>
