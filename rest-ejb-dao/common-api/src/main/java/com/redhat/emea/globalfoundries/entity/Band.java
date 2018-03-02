@@ -1,6 +1,8 @@
 package com.redhat.emea.globalfoundries.entity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -8,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Band implements Serializable {
 
     @Id
