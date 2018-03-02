@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.redhat.emea.globalfoundries</groupId>
+    <artifactId>rest-ejb-dao</artifactId>
+    <version>1.0.0.GA</version>
+    <packaging>pom</packaging>
+    <name>rest-ejb-dao</name>
+    <url>http://www.jboss.org/products/eap</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <distribution>repo</distribution>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <repositories>
+        <repository>
+            <id>jboss-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.jboss.bom.eap>7.1.0.GA</version.jboss.bom.eap>
+        <version.wildfly.maven.plugin>1.2.1.Final</version.wildfly.maven.plugin>
+        <version.ear.plugin>2.10.1</version.ear.plugin>
+        <version.ejb.plugin>3.0.0</version.ejb.plugin>
+        <version.war.plugin>3.2.0</version.war.plugin>
+        <version.jar.plugin>3.0.2</version.jar.plugin>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <version.arquillian.core>1.1.8.Final</version.arquillian.core>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-javaee7</artifactId>
+                <version>${version.jboss.bom.eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            -->
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-javaee7-with-tools</artifactId>
+                <version>${version.jboss.bom.eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.arquillian.core}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>common-api</module>
+        <module>dao-impl</module>
+        <module>ejb-impl</module>
+        <module>rest-impl</module>
+    </modules>
+
+</project>
