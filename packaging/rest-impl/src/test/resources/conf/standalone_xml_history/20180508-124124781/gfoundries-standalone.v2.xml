@@ -510,7 +510,7 @@
     </socket-binding-group>
     <deployments>
         <deployment name="rest-impl.war" runtime-name="rest-impl.war">
-            <content sha1="0409f85d23368f92e0408f646fb8cfb50fe3bef0"/>
+            <content sha1="0ff8c41afa81c34af4a474ebc2ca30776e964b6e"/>
         </deployment>
     </deployments>
 </server>

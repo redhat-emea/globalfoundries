@@ -6,6 +6,9 @@ public class ThatDTO implements Serializable {
 
     private String value;
 
+    public ThatDTO() {
+    }
+
     public ThatDTO(String value) {
         this.value = value;
     }

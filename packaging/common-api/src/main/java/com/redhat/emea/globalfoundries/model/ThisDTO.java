@@ -4,6 +4,9 @@ public class ThisDTO {
 
     private String value;
 
+    public ThisDTO() {
+    }
+
     public ThisDTO(String value) {
         this.value = value;
     }

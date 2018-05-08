@@ -6,6 +6,9 @@ public class OtherDTO implements Serializable {
 
     private String value;
 
+    public OtherDTO() {
+    }
+
     public OtherDTO(String value) {
         this.value = value;
     }
