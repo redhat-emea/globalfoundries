@@ -45,23 +45,23 @@ public class WhichEndpointTest {
                 .addAsResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    @EJB
-    private WhichAPI bean;
-
-    @Test
-    public void testThisIsNotNull() throws Exception {
-        assertNotNull("This: ", bean.getThis());
-    }
-
-    @Test
-    public void testThatIsNotNull() throws Exception {
-        assertNotNull("That: ", bean.getThat());
-    }
-
-    @Test
-    public void testOtherIsNotNull() throws Exception {
-        assertNotNull("Other: ", bean.getOther());
-    }
+//    @EJB
+//    private WhichAPI bean;
+//
+//    @Test
+//    public void testThisIsNotNull() throws Exception {
+//        assertNotNull("This: ", bean.getThis());
+//    }
+//
+//    @Test
+//    public void testThatIsNotNull() throws Exception {
+//        assertNotNull("That: ", bean.getThat());
+//    }
+//
+//    @Test
+//    public void testOtherIsNotNull() throws Exception {
+//        assertNotNull("Other: ", bean.getOther());
+//    }
 
     @Test @RunAsClient
     public void testAsClient(@ArquillianResource URL url) throws Exception {

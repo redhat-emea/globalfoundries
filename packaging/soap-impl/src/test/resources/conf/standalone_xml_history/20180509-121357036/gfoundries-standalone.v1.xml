@@ -508,9 +508,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-    <deployments>
-        <deployment name="test.war" runtime-name="test.war">
-            <content sha1="dc0e88ded2aeaa0f6a26fd10190fdd6c84d405be"/>
-        </deployment>
-    </deployments>
 </server>

@@ -509,8 +509,8 @@
         </outbound-socket-binding>
     </socket-binding-group>
     <deployments>
-        <deployment name="test.war" runtime-name="test.war">
-            <content sha1="dc0e88ded2aeaa0f6a26fd10190fdd6c84d405be"/>
+        <deployment name="soap-impl.war" runtime-name="soap-impl.war">
+            <content sha1="dfdb54ab096ce8df1504c07b68778e319b1be88f"/>
         </deployment>
     </deployments>
 </server>
