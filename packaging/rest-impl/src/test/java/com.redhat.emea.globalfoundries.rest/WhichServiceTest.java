@@ -17,26 +17,15 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.ejb.EJB;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 import java.net.URL;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Arquillian.class)
 public class WhichServiceTest {
-
-    /*
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class, "ejb-impl.jar")
-                .addClasses(WhichAPI.class, WhichBean.class, CommonAPI.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, Authenticator.class, ClientProtocolException.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
-    }
-    */
 
     @Deployment
     public static WebArchive createDeployment() {
@@ -45,24 +34,6 @@ public class WhichServiceTest {
                 //.addAsDirectory("WEB-INF/lib") // RESTEASY-507
                 .addAsWebInfResource("test-web.xml", "web.xml")
                 .addAsResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
-
-    @EJB
-    private WhichAPI bean;
-
-    @Test
-    public void testThisIsNotNull() throws Exception {
-        assertNotNull("This: ", bean.getThis());
-    }
-
-    @Test
-    public void testThatIsNotNull() throws Exception {
-        assertNotNull("That: ", bean.getThat());
-    }
-
-    @Test
-    public void testOtherIsNotNull() throws Exception {
-        assertNotNull("Other: ", bean.getOther());
     }
 
     @Test
