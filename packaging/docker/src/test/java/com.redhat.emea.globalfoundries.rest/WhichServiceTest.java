@@ -3,6 +3,8 @@ package com.redhat.emea.globalfoundries.rest;
 import com.redhat.emea.globalfoundries.CommonAPI;
 import com.redhat.emea.globalfoundries.ejb.WhichAPI;
 import com.redhat.emea.globalfoundries.ejb.WhichBean;
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
+import com.redhat.emea.globalfoundries.ejb.remote.RemoteAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
@@ -41,7 +43,7 @@ public class WhichServiceTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "rest-impl.war")
-                .addClasses(WhichAPI.class, WhichBean.class, CommonAPI.class, WhichService.class, WhichApplication.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, Authenticator.class, ClientProtocolException.class)
+                .addClasses(LocalAPI.class, RemoteAPI.class, WhichAPI.class, WhichBean.class, CommonAPI.class, WhichService.class, WhichApplication.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, Authenticator.class, ClientProtocolException.class)
                 //.addAsDirectory("WEB-INF/lib") // RESTEASY-507
                 .addAsWebInfResource("test-web.xml", "web.xml")
                 .addAsWebInfResource("test-jboss-web.xml", "jboss-web.xml")
@@ -49,7 +51,7 @@ public class WhichServiceTest {
     }
 
     @EJB
-    private WhichAPI bean;
+    private LocalAPI bean;
 
     @Test
     public void testThisIsNotNull() throws Exception {

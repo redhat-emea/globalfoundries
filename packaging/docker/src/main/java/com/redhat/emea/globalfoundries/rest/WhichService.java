@@ -1,7 +1,7 @@
 package com.redhat.emea.globalfoundries.rest;
 
 import com.redhat.emea.globalfoundries.CommonAPI;
-import com.redhat.emea.globalfoundries.ejb.WhichAPI;
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 public class WhichService implements CommonAPI {
 
     @EJB
-    private WhichAPI bean;
+    private LocalAPI bean;
 
     @Override
     @POST
