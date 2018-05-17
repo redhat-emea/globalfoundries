@@ -508,9 +508,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-    <deployments>
-        <deployment name="soap-impl.war" runtime-name="soap-impl.war">
-            <content sha1="4517f9a8c299e1977624c4f6b1e058b57069c710"/>
-        </deployment>
-    </deployments>
 </server>

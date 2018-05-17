@@ -3,11 +3,11 @@ package com.redhat.emea.globalfoundries.soap;
 import com.redhat.emea.globalfoundries.CommonAPI;
 import com.redhat.emea.globalfoundries.ejb.WhichAPI;
 import com.redhat.emea.globalfoundries.ejb.WhichBean;
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
+import com.redhat.emea.globalfoundries.ejb.remote.RemoteAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
-import com.redhat.emea.globalfoundries.soap.WhichEndpoint;
-import com.redhat.emea.globalfoundries.soap.WhichService;
 import org.apache.http.client.ClientProtocolException;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -19,7 +19,6 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.ejb.EJB;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.URL;
@@ -41,7 +40,7 @@ public class WhichEndpointTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, "soap-impl.war")
-                .addClasses(WhichAPI.class, WhichBean.class, CommonAPI.class, WhichService.class, WhichEndpoint.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, ClientProtocolException.class)
+                .addClasses(LocalAPI.class, RemoteAPI.class, WhichAPI.class, WhichBean.class, CommonAPI.class, WhichService.class, WhichEndpoint.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, ClientProtocolException.class)
                 .addAsResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 

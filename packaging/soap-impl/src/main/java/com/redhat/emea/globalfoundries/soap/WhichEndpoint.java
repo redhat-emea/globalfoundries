@@ -1,6 +1,6 @@
 package com.redhat.emea.globalfoundries.soap;
 
-import com.redhat.emea.globalfoundries.ejb.WhichAPI;
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
@@ -15,7 +15,7 @@ import javax.jws.WebService;
 public class WhichEndpoint implements WhichService {
 
     @EJB
-    private WhichAPI bean;
+    private LocalAPI bean;
 
     @Override
     public void doThis() {

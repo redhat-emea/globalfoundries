@@ -510,7 +510,7 @@
     </socket-binding-group>
     <deployments>
         <deployment name="soap-impl.war" runtime-name="soap-impl.war">
-            <content sha1="4517f9a8c299e1977624c4f6b1e058b57069c710"/>
+            <content sha1="1e674262f0513bdb6c32d740c899dd235274edb6"/>
         </deployment>
     </deployments>
 </server>
