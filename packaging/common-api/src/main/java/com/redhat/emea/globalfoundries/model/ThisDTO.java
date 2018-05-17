@@ -1,6 +1,8 @@
 package com.redhat.emea.globalfoundries.model;
 
-public class ThisDTO {
+import java.io.Serializable;
+
+public class ThisDTO implements Serializable {
 
     private String value;
 
