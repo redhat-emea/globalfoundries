@@ -1,6 +1,8 @@
 package com.redhat.emea.globalfoundries.ejb;
 
 import com.redhat.emea.globalfoundries.CommonAPI;
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
+import com.redhat.emea.globalfoundries.ejb.remote.RemoteAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
@@ -23,12 +25,12 @@ public class WhichBeanTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class, "ejb-impl.jar")
-                .addClasses(WhichAPI.class, WhichBean.class, CommonAPI.class, WhichBean.class, WhichAPI.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, ClientProtocolException.class)
+                .addClasses(LocalAPI.class, RemoteAPI.class, WhichAPI.class, WhichBean.class, CommonAPI.class, WhichBean.class, WhichAPI.class, ThisDTO.class, ThatDTO.class, OtherDTO.class, ClientProtocolException.class)
                 .addAsResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @EJB
-    private WhichAPI bean;
+    private LocalAPI bean;
 
     @Test
     public void testThisIsNotNull() throws Exception {

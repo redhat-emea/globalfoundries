@@ -1,12 +1,18 @@
 package com.redhat.emea.globalfoundries.ejb;
 
+import com.redhat.emea.globalfoundries.ejb.local.LocalAPI;
+import com.redhat.emea.globalfoundries.ejb.remote.RemoteAPI;
 import com.redhat.emea.globalfoundries.model.OtherDTO;
 import com.redhat.emea.globalfoundries.model.ThatDTO;
 import com.redhat.emea.globalfoundries.model.ThisDTO;
 
+import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 @Stateless
+@Local(LocalAPI.class)
+@Remote(RemoteAPI.class)
 public class WhichBean implements WhichAPI {
 
     @Override
