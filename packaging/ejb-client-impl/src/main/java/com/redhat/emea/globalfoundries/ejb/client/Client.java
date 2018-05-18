@@ -35,7 +35,6 @@ public class Client {
         }
     }
 
-
     public RemoteAPI lookup() throws NamingException {
 
         final String appName = "";
@@ -44,9 +43,7 @@ public class Client {
         final String beanName = "WhichBean";
         final String viewClassName = RemoteAPI.class.getName();
 
-        //	java:app/rest-impl/WhichBean!com.redhat.emea.globalfoundries.ejb.WhichAPI
-        final String lookup = "ejb:" + appName + "/" + moduleName
-        + "/" + beanName + "!" + viewClassName;
+        final String lookup = "ejb:" + appName + "/" + moduleName + "/" + beanName + "!" + viewClassName;
         System.out.println("lookup: " + lookup);
         final RemoteAPI bean;
         try {
@@ -60,29 +57,9 @@ public class Client {
     }
 
     public void createInitialContext() throws NamingException {
-/*
-        Properties prop = new Properties();
-        prop.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-        prop.put(InitialContext.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
-
-        prop.put("remote.connections","remote");
-        prop.put("remote.connection.remote.host","127.0.0.1");
-        prop.put("remote.connection.remote.port","8080");
-        prop.put("remote.connection.remote.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS","false");
-        prop.put("remote.connection.remote.connect.options.org.xnio.Options.SASL_POLICY_NOPLAINTEXT","false");
-        prop.put("remote.connection.remote.connect.options.org.xnio.Options.SASL_DISALLOWED_MECHANISMS","JBOSS-LOCAL-USER");
-
-        prop.put("remote.connection.remote.username","");
-        prop.put("remote.connection.remote.password","");
-        context = new InitialContext(prop);
-*/
         Properties props = new Properties();
-        props.put(Context.INITIAL_CONTEXT_FACTORY,  "org.wildfly.naming.client.WildFlyInitialContextFactory");
-//        props.put(Context.PROVIDER_URL, String.format("%s://%s:%d", "remote+http", "localhost", 8080));
-//        props.put(Context.SECURITY_PRINCIPAL, "ejbuser");
-//        props.put(Context.SECURITY_CREDENTIALS, "ejbuser.1");
+        props.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
         context = new InitialContext(props);
-
     }
 
     public void closeContext() throws NamingException{
