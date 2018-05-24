@@ -28,7 +28,7 @@ import org.jboss.msc.service.StopContext;
  */
 public class HATimerService implements Service<String> {
     private static final Logger LOGGER = Logger.getLogger(HATimerService.class.toString());
-    public static final ServiceName SINGLETON_SERVICE_NAME = ServiceName.JBOSS.append("quickstart", "ha", "singleton", "timer");
+    public static final ServiceName SINGLETON_SERVICE_NAME = ServiceName.JBOSS.append("ha", "singleton", "timer");
 
     /**
      * A flag whether the service is started.

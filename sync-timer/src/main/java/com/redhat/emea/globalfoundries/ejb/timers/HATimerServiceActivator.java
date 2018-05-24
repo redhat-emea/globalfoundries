@@ -1,6 +1,7 @@
 package com.redhat.emea.globalfoundries.ejb.timers;
 
 import org.jboss.msc.service.*;
+import org.wildfly.clustering.singleton.SingletonCacheRequirement;
 import org.wildfly.clustering.singleton.SingletonServiceBuilderFactory;
 import org.wildfly.clustering.singleton.SingletonServiceName;
 import org.wildfly.clustering.singleton.election.NamePreference;
@@ -17,6 +18,7 @@ public class HATimerServiceActivator implements ServiceActivator {
         log.info("HATimerService will be installed!");
 
         HATimerService service = new HATimerService();
+        SingletonCacheRequirement.valueOf("");
         ServiceName factoryServiceName = SingletonServiceName.BUILDER.getServiceName("server", "default");
         ServiceController<?> factoryService = context.getServiceRegistry().getRequiredService(factoryServiceName);
         SingletonServiceBuilderFactory factory = (SingletonServiceBuilderFactory) factoryService.getValue();
@@ -33,7 +35,6 @@ public class HATimerServiceActivator implements ServiceActivator {
              */
 //            .electionPolicy(new PreferredSingletonElectionPolicy(new SimpleSingletonElectionPolicy(), new NamePreference("et1/singleton")))
             .electionPolicy(new PreferredSingletonElectionPolicy(new SimpleSingletonElectionPolicy(), new NamePreference("et1/singleton"), new NamePreference("node2/singleton")))
-
             .build(new DelegatingServiceContainer(context.getServiceTarget(), context.getServiceRegistry()))
             .setInitialMode(ServiceController.Mode.ACTIVE)
             .install();

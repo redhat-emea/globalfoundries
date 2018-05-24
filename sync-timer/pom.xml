@@ -90,12 +90,12 @@
             <artifactId>jboss-msc</artifactId>
             <version>1.2.6.Final</version>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.eap</groupId>
-            <artifactId>wildfly-clustering-singleton-api</artifactId>
-            <version>7.1.0.GA-redhat-11</version>
-            <type>pom</type>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.eap</groupId>-->
+            <!--<artifactId>wildfly-clustering-singleton-api</artifactId>-->
+            <!--<version>7.1.0.GA-redhat-11</version>-->
+            <!--<type>pom</type>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-clustering-singleton-api</artifactId>
