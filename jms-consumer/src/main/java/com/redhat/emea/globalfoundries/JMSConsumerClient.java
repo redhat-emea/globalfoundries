@@ -1,13 +1,11 @@
 package com.redhat.emea.globalfoundries;
 
-import java.util.Enumeration;
-import java.util.logging.Logger;
-import java.util.Properties;
-
 import javax.jms.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import java.util.Enumeration;
+import java.util.Properties;
 
 public class JMSConsumerClient implements Runnable {
     //private static final Logger log = Logger.getLogger(JMSConsumerClient.class.getName());
@@ -66,7 +64,8 @@ public class JMSConsumerClient implements Runnable {
                 while (true){
                     //String text = consumer.receiveBody(String.class, 5000);
                     Message message = consumer.receive();
-                    String group = message.getStringProperty("JMSXGroupID");
+                    //String group = message.getStringProperty("JMSXGroupID");
+                    String group = message.getStringProperty(org.apache.activemq.artemis.api.core.Message.HDR_GROUP_ID.toString());
                     String text = message.getBody(String.class);
                     Enumeration e = message.getPropertyNames();
                     while (e.hasMoreElements()) {
