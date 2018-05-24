@@ -53,7 +53,7 @@ public class JMSProducerClient {
 
             try (JMSContext context = connectionFactory.createContext(userName, password)) {
                 //log.info("Sending " + count + " messages with content: " + content);
-                String grouping = "_AMQ_GROUP_ID";
+                String grouping = org.apache.activemq.artemis.api.core.Message.HDR_GROUP_ID.toString(); //"_AMQ_GROUP_ID";
                 //String grouping = "JMSXGroupID";
                 for (int i = 1; i <= count; i++) {
                     if (i % 11 == 0) {
